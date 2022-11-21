@@ -1,0 +1,19 @@
+//Function that reverses a string
+function FirstReverse(str) { 
+
+//create empty string
+  var RS = ""
+  
+  //for each letter in the string (from first to last)
+  for (let i = 0; i < str.length; i++) {
+  
+  //add current letter to beginning of RS string
+    RS = str.charAt(i) + RS;
+
+  }
+  return RS;
+}
+
+//Test it
+var string = "coderbyte";
+console.log(FirstReverse(string));
