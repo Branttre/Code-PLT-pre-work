@@ -1,0 +1,45 @@
+//Find the longest word in a string, excluding numbers and special characters
+
+function LongestWord(sen) { 
+
+  const stringArray = sen.split(" ");
+  //console.log(stringArray);
+  var countArray = stringArray.map(countFunction);
+  //console.log("count array" + countArray);
+
+  function countFunction(element) {
+    var length = element.length;
+    //console.log(length);
+    for (let i = 0; i < element.length; i++) {
+      if (element.charAt(i) == "1" || element.charAt(i) == "2" || element.charAt(i) == "3" || element.charAt(i) == "4" || element.charAt(i) == "5" || element.charAt(i) == "6" || element.charAt(i) == "7" || element.charAt(i) == "8" || element.charAt(i) == "9" || element.charAt(i) == "0" || element.charAt(i) == "!" || element.charAt(i) == "@" || element.charAt(i) == "#" || element.charAt(i) == "$" || element.charAt(i) == "%" || element.charAt(i) == "^" || element.charAt(i) == "&" || element.charAt(i) == "*" || element.charAt(i) == "(" || element.charAt(i) == ")" || element.charAt(i) == "-" || element.charAt(i) == "=" || element.charAt(i) == "_" || element.charAt(i) == "+" || element.charAt(i) == "<" || element.charAt(i) == ">" || element.charAt(i) == "?" || element.charAt(i) == "," || element.charAt(i) == "."|| element.charAt(i) == "[" || element.charAt(i) == "]" || element.charAt(i) == ":" || element.charAt(i) == ";" || element.charAt(i) == "~") {
+        //console.log(element.charAt(i));
+        length--;
+       // console.log(length);
+      }
+      else {
+      }
+    }
+    return length;
+    //console.log(countArray);
+  }
+
+//var test = "fun&!! time";
+//console.log(LongestWord(test));
+  var largestIndex = 0;
+  for (let j = 0; j < countArray.length; j++) {
+    if (countArray[j] > countArray[largestIndex]) {
+      largestIndex = j;
+      //console.log("largest index:" + largestIndex);
+    } else {
+    }
+  }
+  var longestString = stringArray[largestIndex];
+  for (let i = 0; i < longestString.length; i++) {
+    if (longestString.charAt(i) == "1" || longestString.charAt(i) == "2" || longestString.charAt(i) == "3" || longestString.charAt(i) == "4" || longestString.charAt(i) == "5" || longestString.charAt(i) == "6" || longestString.charAt(i) == "7" || longestString.charAt(i) == "8" || longestString.charAt(i) == "9" || longestString.charAt(i) == "0" || longestString.charAt(i) == "!" || longestString.charAt(i) == "@" || longestString.charAt(i) == "#" || longestString.charAt(i) == "$" || longestString.charAt(i) == "%" || longestString.charAt(i) == "^" || longestString.charAt(i) == "&" || longestString.charAt(i) == "*" || longestString.charAt(i) == "(" || longestString.charAt(i) == ")" || longestString.charAt(i) == "-" || longestString.charAt(i) == "=" || longestString.charAt(i) == "_" || longestString.charAt(i) == "+" || longestString.charAt(i) == "<" || longestString.charAt(i) == ">" || longestString.charAt(i) == "?" || longestString.charAt(i) == "," || longestString.charAt(i) == "." || longestString.charAt(i) == "[" || longestString.charAt(i) == "]" || longestString.charAt(i) == ":" || longestString.charAt(i) == ";" || longestString.charAt(i) == "~") {
+      longestString = longestString.slice(0,i);
+      //console.log(longestString);
+    } else {
+      return longestString;
+    }
+  }
+}
