@@ -1,0 +1,20 @@
+//check if a number is in the Fibonacci Sequence
+
+function FibonacciChecker(num) { 
+  function FibFunction(num1,num2,num) {
+    var number = num1+num2;
+    //console.log("num1:"+ num1);
+    //console.log("num2:" + num2);
+    //console.log("num:"+ num);
+    //console.log("number:" + number);
+    if (number == num) {
+      output = "yes";
+    } else if (number > num) {
+      output = "no";
+    } else {
+      FibFunction(number, num1, num);
+    }
+  }
+  FibFunction(0,1,num);
+  return output;
+}
