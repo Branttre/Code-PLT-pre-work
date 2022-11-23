@@ -1,0 +1,10 @@
+//Sort a string alphabetically
+
+function AlphabetSoup(str) { 
+
+  var myArray = str.split("")
+  myArray.sort();
+  var sorted = myArray.toString();
+  sorted = sorted.replace(/,/g,"");
+  return sorted;
+}
