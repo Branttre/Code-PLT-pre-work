@@ -1,0 +1,22 @@
+//Check if the string is a palindrome
+function PalindromeTwo(str) { 
+  var string = str.toLowerCase();
+  var myArray = string.split("")
+  var newArray = myArray.filter(test);
+  function test(str) {
+    return str.charCodeAt(0) >= 97 && str.charCodeAt(0) <= 122;
+  }
+  var result = newArray.toString();
+  result = result.replace(/,/g,"");
+  var backwards = "";
+  for (let index = 0; index < result.length; index++) {
+    backwards = result.charAt(index) + backwards
+  }
+  //console.log(result);
+  //console.log(backwards);
+  if (result == backwards) {
+    return "true";
+  } else {
+    return "false";
+  }
+}
