@@ -1,0 +1,59 @@
+//Count the time between two times given in a single string, format example: (9:00am-12:30pm)
+function CountingMinutes(str) { 
+  var myArray = str.split("-");
+  var firstTime = myArray[0];
+  var secondTime = myArray[1];
+  var result = 0;
+  secondTime = secondTime.replace(":", "");
+  firstTime = firstTime.replace(":", "");
+  if (firstTime.length == 5) {
+    firstTime = "0" + firstTime;
+  } else {
+  }
+  if (firstTime.charAt(4) == "a") {
+    var firstTimeH = firstTime.slice(0,2);
+    var firstTimeM = firstTime.slice(2,4);
+    firstTimeH = parseInt(firstTimeH);
+    if (firstTimeH == 12) {
+      firstTimeH = firstTimeH - 12;
+    }
+    firsttimeM = parseInt(firstTimeM);
+      } else {
+    var firstTimeH = firstTime.slice(0,2);
+    var firstTimeM = firstTime.slice(2,4);
+    firstTimeH = parseInt(firstTimeH);
+    if (firstTimeH == 12) {
+    } else {
+      firstTimeH = firstTimeH + 12;
+    }
+    firstTimeM = parseInt(firstTimeM);
+      }
+
+  if (secondTime.length == 5) {
+    secondTime = "0" + secondTime;
+  } else {
+  }
+  if (secondTime.charAt(4) == "a") {
+    var secondTimeH = secondTime.slice(0,2);
+    var secondTimeM = secondTime.slice(2,4);
+    secondTimeH = parseInt(secondTimeH);
+    if (secondTimeH == 12) {
+      secondTimeH = secondTimeH - 12;
+    }
+    secondtimeM = parseInt(secondTimeM);
+      } else {
+    var secondTimeH = secondTime.slice(0,2);
+    var secondTimeM = secondTime.slice(2,4);
+    secondTimeH = parseInt(secondTimeH);
+    if (secondTimeH == 12) {
+    } else {
+      secondTimeH = secondTimeH + 12;
+    }
+    secondTimeM = parseInt(secondTimeM);
+      }
+  result = ((secondTimeH - firstTimeH) * 60) + (secondTimeM - firstTimeM);
+  if (result < 0) {
+    result = result + 1440;
+  }
+return result;
+}
