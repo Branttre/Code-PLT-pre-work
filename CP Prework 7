@@ -1,0 +1,35 @@
+//String Scramble (can string 1 be re-arranged into string 2?)
+function StringScramble(str1,str2) { 
+let lettercount = new Map();
+  for (let index = 0; index < str2.length; index++) {
+    if (lettercount.has(str2.substr(index,1))) {
+      lettercount.set(str2.substr(index,1), lettercount.get(str2.substr(index,1)) + 1);
+    } else {
+      lettercount.set(str2.substr(index,1), 1);
+    }
+  }
+  let str1lettercount = new Map();
+  for (let index = 0; index < str1.length; index++) {
+    if (str1lettercount.has(str1.substr(index,1))) {
+      str1lettercount.set(str1.substr(index,1), str1lettercount.get(str1.substr(index,1)) + 1);
+  } else {
+    str1lettercount.set(str1.substr(index,1), 1);
+  }
+  }
+  //works = 1 is yes, 0 is no.
+  var works = 1;
+  for (let [key, value] of lettercount.entries()) {
+    if (str1lettercount.has(key) == true && str1lettercount.get(key) >= value) {
+      //console.log("checked and works");
+    } else {
+      works = 0;
+      break;
+    }
+  }
+  if (works == 0) {
+    return "false";
+  } else {
+    return "true";
+  }
+  //return lettercount;
+}
