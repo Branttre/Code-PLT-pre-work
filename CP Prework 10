@@ -1,0 +1,17 @@
+//Determine the number of duplicates in an array
+function DistinctList(arr) { 
+  //create objects with two properties, character and count
+  let charCount = new Map();
+  var dupeCount = 0;
+  
+
+  for (let index = 0; index < arr.length; index++) {
+    if (charCount.has(arr[index])) {
+      charCount.set(arr[index], charCount.get(arr[index]) + 1);
+    } else charCount.set(arr[index], 1)
+  }
+  for (const x of charCount.values()) {
+    dupeCount = dupeCount + x - 1;
+  }
+  return dupeCount;
+}
