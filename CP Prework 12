@@ -1,0 +1,38 @@
+//Shift each letter in the string N places in the alphabet (CaesarCipher)
+function CaesarCipher(str,num) { 
+
+  var ogstring = str;
+  var caesarString = "";
+  
+  for (let index = 0; index < str.length; index++) {
+    var charCode = ogstring.charCodeAt(index);
+    
+    if (charCode < 123 && charCode > 96) {
+      var newCharCode = charCode + num;
+      if (newCharCode > 122) {
+        newCharCode = newCharCode - 26;
+        caesarString += String.fromCharCode(newCharCode);
+      } else if (newCharCode < 97)
+      {
+        newCharCode = newCharCode + 26;
+        caesarString += String.fromCharCode(newCharCode);
+      } else {
+        caesarString += String.fromCharCode(newCharCode);
+      }
+    } else if (charCode < 91 && charCode > 64) {
+        var newCharCode = charCode + num;
+        if (newCharCode > 90) {
+          newCharCode = newCharCode - 26;
+          caesarString += String.fromCharCode(newCharCode);
+        } else if (newCharCode < 65) {
+          newCharCode = newCharCode + 26;
+          caesarString += String.fromCharCode(newCharCode);
+        } else {
+          caesarString += String.fromCharCode(newCharCode);
+        }
+    } else {
+      caesarString += str.charAt(index);
+    }
+  }
+  return caesarString;
+}
