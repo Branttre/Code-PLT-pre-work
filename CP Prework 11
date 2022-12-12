@@ -1,0 +1,25 @@
+//return the third largest word in an array of strings
+function ThirdGreatest(strArr) {
+  var greatestStrLength = 0;
+  var greatestStrLoc = 0;
+  var stringArray = strArr;
+  var spliceCount = 0;
+
+  while (spliceCount < 3) {
+    for (let index = 0; index < stringArray.length; index++) {
+      if (stringArray[index].length > greatestStrLength) {
+        greatestStrLength = stringArray[index].length;
+        greatestStrLoc = index;      
+      }
+    }
+    if (spliceCount == 2) {
+      return stringArray[greatestStrLoc];
+    } else {
+      //console.log(stringArray[greatestStrLoc]);
+      stringArray.splice(greatestStrLoc,1);
+      //console.log(stringArray);
+      spliceCount++;
+      greatestStrLoc = 0;
+      greatestStrLength = 0;
+    }
+  }
